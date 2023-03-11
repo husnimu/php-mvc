@@ -1,1 +1,6 @@
-<h1>Hello-Bootstrap</h1>
+<div class="row">
+  <div class="col-md-12">
+    <h1>Home</h1>
+    <p>Home page content goes here.</p>
+  </div>
+</div>
