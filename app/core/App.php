@@ -4,6 +4,9 @@ namespace App\Core;
 
 class App
 {
+  protected $controller = 'Home';
+  protected $method = 'index';
+  protected $params = [];
 
   public function __construct()
   {
@@ -23,7 +26,7 @@ class App
       // check if url is empty
       if (empty($url)) {
         // set url to home
-        $url = 'home';
+        $url = '/';
       }
 
       // check if url has a query string
@@ -34,6 +37,12 @@ class App
         $url = $url[0];
       }
     }
+
+    // trim again to remove trailing slash
+    $url = rtrim($url, '/');
+    $url = ltrim($url, '/');
+    // explode url into array
+    $url = explode('/', $url);
 
     return $url;
   }
