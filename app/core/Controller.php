@@ -18,4 +18,18 @@ class Controller
       die('View does not exist');
     }
   }
+
+  public function model($model)
+  {
+    // check if model file exists
+    if (file_exists('../app/models/' . $model . '.php')) {
+      // require model file
+      require_once '../app/models/' . $model . '.php';
+      // instantiate model
+      return new $model;
+    } else {
+      // model does not exist
+      die('Model does not exist');
+    }
+  }
 }

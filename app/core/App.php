@@ -6,7 +6,7 @@ use Error;
 
 class App
 {
-  protected $controller = 'Home';
+  protected $controller = 'HomeController';
   protected $method = 'index';
   protected $params = [];
 
@@ -14,8 +14,8 @@ class App
   {
     $url = $this->parseUrl();
 
-    if (file_exists('../app/controllers/' . ucfirst($url[0]) . '.php')) {
-      $this->controller = ucfirst($url[0]);
+    if (file_exists('../app/controllers/' . ucfirst($url[0]) . 'Controller.php')) {
+      $this->controller = ucfirst($url[0]) . 'Controller';
       unset($url[0]);
     }
 
