@@ -12,4 +12,13 @@ class MahasiswaController extends Controller
       'mahasiswa' => $mahasiswa->getAll()
     ]);
   }
+
+  public function show($id)
+  {
+    $mahasiswa = $this->model('Mahasiswa');
+    $this->view('mahasiswa/show', [
+      'title' => 'Mahasiswa',
+      'mahasiswa' => $mahasiswa->getById($id)
+    ]);
+  }
 }

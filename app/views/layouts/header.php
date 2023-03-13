@@ -14,6 +14,7 @@ $popper = BASEURL . '/js/popper.min.js';
     <?= $data['title']; ?>
   </title>
   <link rel="stylesheet" href="<?= $bootstrap_css ?>" />
+  <script async data-id="five-server" src="http://localhost:5500/fiveserver.js"></script>
   <script src="<?= $popper ?>"></script>
   <script src="<?= $bootstrap_js ?>"></script>
 </head>

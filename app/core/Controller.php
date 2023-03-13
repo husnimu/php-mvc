@@ -24,6 +24,7 @@ class Controller
     // check if model file exists
     if (file_exists('../app/models/' . $model . '.php')) {
       // require model file
+      require_once '../app/models/Model.php';
       require_once '../app/models/' . $model . '.php';
       // instantiate model
       return new $model;
