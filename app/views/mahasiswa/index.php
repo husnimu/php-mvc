@@ -1,4 +1,7 @@
 <h1>Mahasiswa</h1>
+<div class="row">
+  <?php Session::flash(); ?>
+</div>
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createMahasiswa">
   Tambah Mahasiswa
 </button>

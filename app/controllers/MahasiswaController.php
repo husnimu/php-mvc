@@ -25,11 +25,13 @@ class MahasiswaController extends Controller
   public function create()
   {
     if ($this->model('Mahasiswa')->create($_POST) > 0) {
+      Session::setFlash('berhasil', 'ditambahkan', 'success');
       header('Location: ' . BASEURL . 'mahasiswa');
       exit;
     } else {
-      var_dump('123');
-      die;
+      Session::setFlash('gagal', 'ditambahkan', 'danger');
+      header('Location: ' . BASEURL . 'mahasiswa');
+      exit;
     }
   }
 }

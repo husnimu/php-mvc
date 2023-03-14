@@ -20,6 +20,11 @@ class Mahasiswa extends Model
 
   public function create($data)
   {
+    // check if the data is empty
+    if (empty($data['nama']) || empty($data['nrp']) || empty($data['email']) || empty($data['jurusan'])) {
+      return 0;
+    }
+
     $query = "INSERT INTO $this->table
       VALUES
     (null, :nama, :nrp, :email, :jurusan)";
