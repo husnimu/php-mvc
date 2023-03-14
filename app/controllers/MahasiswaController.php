@@ -34,4 +34,17 @@ class MahasiswaController extends Controller
       exit;
     }
   }
+
+  public function delete($id)
+  {
+    if ($this->model('Mahasiswa')->delete($id) > 0) {
+      Session::setFlash('berhasil', 'dihapus', 'success');
+      header('Location: ' . BASEURL . 'mahasiswa');
+      exit;
+    } else {
+      Session::setFlash('gagal', 'dihapus', 'danger');
+      header('Location: ' . BASEURL . 'mahasiswa');
+      exit;
+    }
+  }
 }

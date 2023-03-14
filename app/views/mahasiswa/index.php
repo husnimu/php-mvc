@@ -13,8 +13,14 @@
         <li><?= $key . ' : ' . $data ?></li>
       <?php endforeach ?>
       <li>
-        <a href="<?= BASEURL . '/mahasiswa/show/' . $mahasiswa['id'] ?>">
+        <a href="<?= BASEURL . 'mahasiswa/show/' . $mahasiswa['id'] ?>">
           detail
+        </a>
+        <a href="<?= BASEURL . 'mahasiswa/edit/' . $mahasiswa['id'] ?>">
+          edit
+        </a>
+        <a href="<?= BASEURL . 'mahasiswa/delete/' . $mahasiswa['id'] ?>" onclick="return confirm('anda yakin?');">
+          delete
         </a>
       </li>
     </ul>
