@@ -17,6 +17,23 @@ class Mahasiswa extends Model
     $this->db->bind('id', $id);
     return $this->db->first();
   }
+
+  public function create($data)
+  {
+    $query = "INSERT INTO $this->table
+      VALUES
+    (null, :nama, :nrp, :email, :jurusan)";
+
+    $this->db->query($query);
+    $this->db->bind('nama', $data['nama']);
+    $this->db->bind('nrp', $data['nrp']);
+    $this->db->bind('email', $data['email']);
+    $this->db->bind('jurusan', $data['jurusan']);
+
+    $this->db->execute();
+
+    return $this->db->rowCount();
+  }
 }
 
 // https://youtu.be/fgk1Mv3wes4?list=PLFIM0718LjIVEh_d-h5wAjsdv2W4SAtkx&t=1130

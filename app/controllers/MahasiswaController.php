@@ -21,4 +21,15 @@ class MahasiswaController extends Controller
       'mahasiswa' => $mahasiswa->getById($id)
     ]);
   }
+
+  public function create()
+  {
+    if ($this->model('Mahasiswa')->create($_POST) > 0) {
+      header('Location: ' . BASEURL . 'mahasiswa');
+      exit;
+    } else {
+      var_dump('123');
+      die;
+    }
+  }
 }
