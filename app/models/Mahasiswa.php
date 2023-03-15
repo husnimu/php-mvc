@@ -71,6 +71,14 @@ class Mahasiswa extends Model
 
     return $this->db->rowCount();
   }
+
+  public function search($keyword)
+  {
+    $query = "SELECT * FROM $this->table WHERE nama LIKE :keyword";
+    $this->db->query($query);
+    $this->db->bind('keyword', "%$keyword%");
+    return $this->db->get();
+  }
 }
 
 // https://youtu.be/fgk1Mv3wes4?list=PLFIM0718LjIVEh_d-h5wAjsdv2W4SAtkx&t=1130

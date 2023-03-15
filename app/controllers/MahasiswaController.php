@@ -9,7 +9,8 @@ class MahasiswaController extends Controller
     $mahasiswa = $this->model('Mahasiswa');
     $this->view('mahasiswa/index', [
       'title' => 'Mahasiswa',
-      'mahasiswa' => $mahasiswa->getAll()
+      'mahasiswa' => $mahasiswa->getAll(),
+      'keyword' => null
     ]);
   }
 
@@ -64,5 +65,15 @@ class MahasiswaController extends Controller
       header('Location: ' . BASEURL . 'mahasiswa');
       exit;
     }
+  }
+
+  public function search()
+  {
+    $mahasiswa = $this->model('Mahasiswa');
+    $this->view('mahasiswa/index', [
+      'title' => 'Mahasiswa',
+      'mahasiswa' => $mahasiswa->search($_POST['keyword']),
+      'keyword' => $_POST['keyword']
+    ]);
   }
 }

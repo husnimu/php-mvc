@@ -2,9 +2,22 @@
 <div class="row">
   <?php Session::flash(); ?>
 </div>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createMahasiswa" id="create">
-  Tambah Mahasiswa
-</button>
+<div class="row">
+  <div class="col">
+    <form action="<?= BASEURL . 'mahasiswa/search' ?>" method="post">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Cari Mahasiswa" name="keyword" id="keyword"
+          autocomplete="off" value="<?= $data['keyword']; ?>">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Cari</button>
+      </div>
+    </form>
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createMahasiswa" id="create">
+      Tambah Mahasiswa
+    </button>
+  </div>
+</div>
 <row>
   <col>
   <?php foreach ($data['mahasiswa'] as $key => $mahasiswa) : ?>
