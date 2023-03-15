@@ -2,6 +2,7 @@
 $bootstrap_css = BASEURL . '/css/bootstrap.min.css';
 $bootstrap_js = BASEURL . '/js/bootstrap.min.js';
 $popper = BASEURL . '/js/popper.min.js';
+$jquery = BASEURL . '/js/jquery.min.js';
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +18,7 @@ $popper = BASEURL . '/js/popper.min.js';
   <script async data-id="five-server" src="http://localhost:5500/fiveserver.js"></script>
   <script src="<?= $popper ?>"></script>
   <script src="<?= $bootstrap_js ?>"></script>
+  <script src="<?= $jquery ?>"></script>
 </head>
 
 <body>
@@ -24,7 +26,8 @@ $popper = BASEURL . '/js/popper.min.js';
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container">
       <a class="navbar-brand" href="<?= BASEURL; ?>">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">

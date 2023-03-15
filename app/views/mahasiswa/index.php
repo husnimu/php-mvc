@@ -2,40 +2,43 @@
 <div class="row">
   <?php Session::flash(); ?>
 </div>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createMahasiswa">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createMahasiswa" id="create">
   Tambah Mahasiswa
 </button>
 <row>
   <col>
   <?php foreach ($data['mahasiswa'] as $key => $mahasiswa) : ?>
-    <ul>
-      <?php foreach ($mahasiswa as $key => $data) : ?>
-        <li><?= $key . ' : ' . $data ?></li>
-      <?php endforeach ?>
-      <li>
-        <a href="<?= BASEURL . 'mahasiswa/show/' . $mahasiswa['id'] ?>">
-          detail
-        </a>
-        <a href="<?= BASEURL . 'mahasiswa/edit/' . $mahasiswa['id'] ?>">
-          edit
-        </a>
-        <a href="<?= BASEURL . 'mahasiswa/delete/' . $mahasiswa['id'] ?>" onclick="return confirm('anda yakin?');">
-          delete
-        </a>
-      </li>
-    </ul>
+  <ul>
+    <?php foreach ($mahasiswa as $key => $data) : ?>
+    <li><?= $key . ' : ' . $data ?></li>
+    <?php endforeach ?>
+    <li>
+      <a href="<?= BASEURL . 'mahasiswa/show/' . $mahasiswa['id'] ?>">
+        detail
+      </a>
+      <a href="<?= BASEURL . 'mahasiswa/edit/' . $mahasiswa['id'] ?>" data-bs-toggle="modal"
+        data-id="<?= $mahasiswa['id'] ?>" data-bs-target="#createMahasiswa" class="edit">
+        edit
+      </a>
+      <a href="<?= BASEURL . 'mahasiswa/delete/' . $mahasiswa['id'] ?>" onclick="return confirm('anda yakin?');">
+        delete
+      </a>
+    </li>
+  </ul>
   <?php endforeach ?>
   </col>
 </row>
 
-<div class="modal fade" id="createMahasiswa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createMahasiswaLabel" aria-hidden="true">
+<div class="modal fade" id="createMahasiswa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="createMahasiswaLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="createMahasiswaLabel">Tambah Mahasiswa</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="<?= BASEURL; ?>mahasiswa/create" method="POST">
+      <form action="<?= BASEURL; ?>mahasiswa/create" method="POST" id="form">
+        <input type="hidden" name="id" id="id">
         <div class="modal-body">
           <div class="mb-3">
             <label for="nama" class="form-label">Nama</label>
@@ -57,13 +60,13 @@
               <option value="Teknik Industri">Teknik Industri</option>
             </select>
           </div>
-
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Simpan</button>
+          <button type="submit" class="btn btn-primary" id="submit">Tambah</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+<script src="<?= BASEURL; ?>js/mahasiswa.edit.js"></script>
