@@ -80,5 +80,3 @@ class Mahasiswa extends Model
     return $this->db->get();
   }
 }
-
-// https://youtu.be/fgk1Mv3wes4?list=PLFIM0718LjIVEh_d-h5wAjsdv2W4SAtkx&t=1130
